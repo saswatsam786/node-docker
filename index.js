@@ -1,6 +1,11 @@
-const express = require('express');
+const express = require('express')
+const mongoose = require('mongoose')
 
 const app = express();
+
+mongoose.connect("mongodb://saswat:mypassword@mongo:27017/?authSource=admin")
+    .then(() => { console.log("successfully connected to db") })
+    .catch((err) => { console.log(err) })
 
 const PORT = process.env.PORT || 3000;
 
